@@ -6,7 +6,7 @@ package offer_jianzhi;
  * Date: 2020/11/17
  * Time: 下午6:21
  */
-public class _29 {
+public class _offer_29 {
     public int[] spiralOrder(int[][] matrix) {
         int rowLen = matrix.length;
         if (rowLen == 0)

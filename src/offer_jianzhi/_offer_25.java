@@ -6,7 +6,7 @@ package offer_jianzhi;
  * Date: 2020/11/17
  * Time: 上午11:24
  */
-public class _25 {
+public class _offer_25 {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode head = new ListNode(-1);
         ListNode p = head;

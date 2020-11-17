@@ -1,33 +1,42 @@
 package offer_jianzhi;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
+/**
+ * Created with IntelliJ IDEA.
+ * User: kuangbo
+ * Date: 2020/8/20
+ * Time: 下午12:29
+ */
 public class _offer_32 {
+    public static void main(String[] args) {
+
+    }
+    // 使用广度优先解决问题
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<>();
-        }
-        List<List<Integer>> res = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        while (!queue.isEmpty()) {
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null)
+            return res;
+        queue.add(root);
+        int index = 0;
+        while(!queue.isEmpty()) {
             int size = queue.size();
             List<Integer> list = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
+            for(int i = 0; i < size; i ++) {
                 TreeNode now = queue.poll();
                 list.add(now.val);
-                if (now.left != null) {
-                    queue.offer(now.left);
-                }
-                if (now.right != null) {
-                    queue.offer(now.right);
-                }
+                if(now.left != null)
+                    queue.add(now.left);
+                if(now.right != null)
+                    queue.add(now.right);
             }
+            index ++;
+            if(index % 2 == 0)
+                Collections.reverse(list);
             res.add(list);
         }
+        res.remove(res.size() - 1);
         return res;
     }
 

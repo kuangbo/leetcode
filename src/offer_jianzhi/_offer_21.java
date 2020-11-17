@@ -6,7 +6,7 @@ package offer_jianzhi;
  * Date: 2020/11/17
  * Time: 上午11:04
  */
-public class _21 {
+public class _offer_21 {
     public int[] exchange(int[] nums) {
         int left = 0;
         int right = nums.length - 1;

@@ -6,7 +6,7 @@ package offer_jianzhi;
  * Date: 2020/10/23
  * Time: 上午10:44
  */
-public class _03 {
+public class _offer_03 {
     public int findRepeatNumber(int[] nums) {
         int temp;
         for (int i = 0; i < nums.length; i++) {

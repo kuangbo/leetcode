@@ -6,7 +6,7 @@ package offer_jianzhi;
  * Date: 2020/8/22
  * Time: 下午4:35
  */
-public class _06 {
+public class _offer_06 {
     // 主要思路：对head链表遍历，过程中记录元素个数
     // 再次遍历，从数组最后一次位置放入元素
     public int[] reversePrint(ListNode head) {

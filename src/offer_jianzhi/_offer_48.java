@@ -9,7 +9,7 @@ import java.util.Map;
  * Date: 2020/10/23
  * Time: 上午11:06
  */
-public class _48 {
+public class _offer_48 {
     public int lengthOfLongestSubstring(String s) {
         char[] ch = s.toCharArray();
         Map<Character, Integer> window = new HashMap<>();

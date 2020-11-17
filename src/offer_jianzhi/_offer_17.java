@@ -6,7 +6,7 @@ package offer_jianzhi;
  * Date: 2020/11/17
  * Time: 上午10:51
  */
-public class _17 {
+public class _offer_17 {
     public int[] printNumbers(int n) {
         if (n <= 0)
             return new int[]{};

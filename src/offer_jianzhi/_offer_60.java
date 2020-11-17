@@ -6,7 +6,7 @@ package offer_jianzhi;
  * Date: 2020/10/23
  * Time: 上午11:33
  */
-public class _60 {
+public class _offer_60 {
     public static void main(String[] args) {
         System.out.println(1. / 36 / 6);
         System.out.println(36 * 6);

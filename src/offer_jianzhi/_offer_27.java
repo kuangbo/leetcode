@@ -6,7 +6,7 @@ package offer_jianzhi;
  * Date: 2020/11/17
  * Time: 下午4:08
  */
-public class _27 {
+public class _offer_27 {
     public TreeNode mirrorTree(TreeNode root) {
         if (root == null)
             return null;

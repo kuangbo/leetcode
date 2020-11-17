@@ -1,24 +1,29 @@
 package offer_jianzhi;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * Created with IntelliJ IDEA.
+ * User: kuangbo
+ * Date: 2020/8/21
+ * Time: 上午11:58
+ */
 public class _offer_54 {
-    public static void main(String[] args) {
-
-    }
+    int res = 0;
+    int count = 0;
 
     public int kthLargest(TreeNode root, int k) {
         dfs(root, k);
-        return list.get(list.size() - 1);
+        return res;
     }
 
-    List<Integer> list = new ArrayList<>();
     public void dfs(TreeNode root, int k) {
-        if(root != null) {
-            dfs(root.left, k);
-            list.add(root.val);
+        if (root != null) {
             dfs(root.right, k);
+            count++;
+            if (count == k) {
+                res = root.val;
+                return;
+            }
+            dfs(root.left, k);
         }
     }
 
