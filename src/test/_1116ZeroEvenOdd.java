@@ -11,8 +11,6 @@ import java.util.function.IntConsumer;
 public class _1116ZeroEvenOdd {
     private volatile int state = 0;
     private int zeroValue = 2;
-    private int oddValue = 1;
-    private int evenValue = 2;
     private int n;
 
     public _1116ZeroEvenOdd(int n) {
@@ -22,22 +20,24 @@ public class _1116ZeroEvenOdd {
     // printNumber.accept(x) outputs "x", where x is an integer.
     public void zero(IntConsumer printNumber) throws InterruptedException {
         synchronized (this) {
-            while (state != 0)
-                this.wait();
-            printNumber.accept(0);
-            zeroValue = zeroValue == 1 ? 2 : 1;
-            state = zeroValue;
-            this.notifyAll();
+            for (int i = 0; i < n; i++) {
+                while (state != 0)
+                    this.wait();
+                printNumber.accept(0);
+                zeroValue = zeroValue == 1 ? 2 : 1;
+                state = zeroValue;
+                this.notifyAll();
+            }
         }
     }
 
     public void odd(IntConsumer printNumber) throws InterruptedException {
         synchronized (this) {
-            while (oddValue <= n) {
+            for (int i = 1; i <= n; ) {
                 while (state != 1)
                     this.wait();
-                printNumber.accept(oddValue);
-                oddValue = oddValue + 2;
+                printNumber.accept(i);
+                i = i + 2;
                 state = 0;
                 this.notifyAll();
             }
@@ -46,11 +46,11 @@ public class _1116ZeroEvenOdd {
 
     public void even(IntConsumer printNumber) throws InterruptedException {
         synchronized (this) {
-            while (evenValue <= n) {
+            for (int i = 2; i <= n; ) {
                 while (state != 2)
                     this.wait();
-                printNumber.accept(evenValue);
-                evenValue = evenValue + 2;
+                printNumber.accept(i);
+                i = i + 2;
                 state = 0;
                 this.notifyAll();
             }
