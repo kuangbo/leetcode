@@ -13,12 +13,12 @@ import java.util.List;
  */
 public class _offer_38 {
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution_38 solution = new Solution_38();
         System.out.println(Arrays.toString(solution.permutation("abc")));
     }
 }
 
-class Solution {
+class Solution_38 {
     List<String> res = new LinkedList<>();
     char[] ch;
 
