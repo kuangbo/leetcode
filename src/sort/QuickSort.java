@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class QuickSort {
     public static void main(String[] args) {
         int[] arr = new int[]{3, 2, 7, 5, 43, 1, 8};
-        quickSort2(arr, 0, arr.length - 1);
+        quickSort3(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -22,22 +22,22 @@ public class QuickSort {
         int right = r;
         int key = arr[left];
         while (left < right) {
-            while (left < right && key <= arr[right]) {
+            while (left < right && arr[right] >= key) {
                 --right;
             }
             arr[left] = arr[right];
-            while (left < right && key >= arr[left]) {
+            while (left < right && arr[left] <= key) {
                 ++left;
             }
             arr[right] = arr[left];
         }
         arr[left] = key;
         quickSort2(arr, l, left - 1);
-        quickSort2(arr, right + 1, r);
+        quickSort2(arr, left + 1, r);
     }
 
     public static void quickSort3(int[] arr, int l, int r) {
-        if (l > r)
+        if (l >= r)
             return;
         int left = l;
         int right = r;
@@ -55,9 +55,10 @@ public class QuickSort {
                 ++i;
             }
         }
+        // 将左边第一类的最后一个位置的元素left，与第一个元素交换，因为第一个元素是p
         swap(arr, left, l);
-        quickSort3(arr, l, left - 1);
-        quickSort3(arr, right + 1, r);
+        quickSort3(arr, l, left - 1);   // left位置的元素是p
+        quickSort3(arr, right + 1, r);  // right+1是因为前面有个--right
     }
 
     private static void swap(int[] arr, int i, int j) {
